@@ -27,7 +27,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Setup Node.js
-        user: actions/setup-node@v2.1.2
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: ${{ matrix.node-version }} 
     
@@ -45,11 +45,8 @@ jobs:
         
       
       - name: Deploy to GithubPages
-        uses: JamesIves/github-pages-deploy-action@3.5.9
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           GITHUB_TOKEN": ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDERS: mochawesome-report
-        
-        
-        
+          FOLDER: mochawesome-report
